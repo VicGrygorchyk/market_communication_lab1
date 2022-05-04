@@ -14,7 +14,8 @@ class ResultsTest < ApplicationSystemTestCase
     visit results_url
     click_on "New Result"
 
-    fill_in "Score", with: @result.score
+    fill_in "Max", with: @result.max
+    fill_in "Min", with: @result.min
     fill_in "Text", with: @result.text
     click_on "Create Result"
 
@@ -26,7 +27,8 @@ class ResultsTest < ApplicationSystemTestCase
     visit results_url
     click_on "Edit", match: :first
 
-    fill_in "Score", with: @result.score
+    fill_in "Max", with: @result.max
+    fill_in "Min", with: @result.min
     fill_in "Text", with: @result.text
     click_on "Update Result"
 

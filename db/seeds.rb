@@ -60,7 +60,8 @@ def seed_results
     json_.each do |result|
         data = {
             text: result["text"],
-            score: result["score"]
+            min: result["min"],
+            max: result["max"]
         }
         inv = Result.create(data) 
     end

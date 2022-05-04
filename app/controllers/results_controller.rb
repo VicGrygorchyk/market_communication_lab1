@@ -65,6 +65,6 @@ class ResultsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def result_params
-      params.require(:result).permit(:text, :score)
+      params.require(:result).permit(:text, :min, :max)
     end
 end

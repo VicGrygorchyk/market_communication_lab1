@@ -13,23 +13,9 @@ def run_telegram_bot
           # Here you can handle your callbacks from inline buttons   
         if message.data.start_with?('end_test')
           final_score = message.data[/(?<=score )\d+/, 0].to_i
-          results = Result.all.to_a.sort_by { |item| item[:score].to_i}
-          res_1 = results[0]
-          res_2 = results[1]
-          res_3 = results[2]
-
-          final_res = nil
-          if final_score > res_1["score"]
-            if final_score >= res_2["score"]
-              if final_score >= res_3["score"]
-                final_res = res_3["text"]
-              else
-                final_res = res_2["text"]
-              end
-            else
-              final_res = res_1["text"]
-            end
-          end
+          results = Result.where("min <= ?", final_score).where("max >= ?", final_score)
+          final_res = results.to_a.pop
+          final_res = final_res["text"]
           
           bot.api.send_message(chat_id: message.from.id, text: "Ваш підсумковий бал #{final_score}")
           bot.api.send_message(chat_id: message.from.id, text: "#{final_res}")

@@ -17,7 +17,7 @@ class ResultsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create result" do
     assert_difference('Result.count') do
-      post results_url, params: { result: { score: @result.score, text: @result.text } }
+      post results_url, params: { result: { max: @result.max, min: @result.min, text: @result.text } }
     end
 
     assert_redirected_to result_url(Result.last)
@@ -34,7 +34,7 @@ class ResultsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update result" do
-    patch result_url(@result), params: { result: { score: @result.score, text: @result.text } }
+    patch result_url(@result), params: { result: { max: @result.max, min: @result.min, text: @result.text } }
     assert_redirected_to result_url(@result)
   end
 
