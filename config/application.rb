@@ -19,6 +19,6 @@ module TelegramBot
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    Thread.new { run_telegram_bot }
+    # Thread.new { run_telegram_bot }
   end
 end
