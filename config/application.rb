@@ -1,5 +1,5 @@
 require_relative "boot"
-require_relative "bot_main"
+require_relative "bot_src/bot_main"
 
 require "rails/all"
 

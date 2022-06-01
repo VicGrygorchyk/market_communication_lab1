@@ -59,4 +59,4 @@ gem "faker", "~> 2.19"
 
 gem "csv", "~> 3.2"
 
-gem "telegram-bot-ruby", "~> 0.16.0"
+gem "telegram-bot-ruby"
